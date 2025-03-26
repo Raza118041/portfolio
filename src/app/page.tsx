@@ -1,10 +1,12 @@
 import React from 'react'
 import Section from '@/components/sectionView/section'
+import SkillView from '@/components/skillsView/skills'
 
 const Page = () => {
   return (
-    <div>
+    <div className=''>
       <Section />
+      <SkillView />
     </div>
   )
 }
