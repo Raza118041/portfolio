@@ -33,7 +33,7 @@ const Navbar = () => {
             document.body.style.overflow = "auto";
         };
     }, [isOpen]);
-    const handleScroll = (id: any) => {
+    const handleScroll = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
