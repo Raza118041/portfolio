@@ -46,9 +46,9 @@ const Email = () => {
     ]
 
     return (
-        <div className="flex flex-row items-center">
+        <div className="flex flex-col md:flex-row items-center justify-center">
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-1/2 px-6 gap-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full md:w-1/2 px-6 gap-6">
                     <FormField
                         control={form.control}
                         name="username"
@@ -111,7 +111,7 @@ const Email = () => {
                 <div className="py-4 px-6">
                 </div>
             </Form>
-            <div >
+            <div className="px-6">
                 <span className="font-extrabold text-3xl">{"Let's talk for "}</span><br />
                 <span className="font-extrabold text-3xl">Something special</span><br />
                 <span className="pt-4 flex">{"Have a project in mind? Let’s discuss how we can bring it to life together"}</span>
