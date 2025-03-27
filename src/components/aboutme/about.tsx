@@ -1,5 +1,4 @@
 import React from 'react'
-import Men from "@/assets/men.svg"
 import Image from 'next/image'
 import fahad from "@/assets/Images/fahad.png"
 
