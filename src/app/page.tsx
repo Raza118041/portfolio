@@ -11,18 +11,20 @@ const Page = () => {
   return (
     <div className=''>
       <Section />
-      <SkillView />
+      <div className='' id='skills'>
+        <SkillView />
+      </div>
       <Experience />
-      <div className='py-20'>
+      <div className='py-20' id='about'>
         <About />
       </div>
-      <div className='pb-10'>
+      <div className='pb-10' id='project'>
         <Project />
       </div>
       <div className='pb-10'>
         <MyTestimonial />
       </div>
-      <div className='pb-10'>
+      <div className='pb-10' id='contactme'>
         <Email />
       </div>
     </div>

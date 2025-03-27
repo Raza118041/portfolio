@@ -10,16 +10,16 @@ const Navbar = () => {
     };
     const navLinks = [
         {
-            link: "About Me",
+            link: "About Me", id: "about",
         },
         {
-            link: "Skills",
+            link: "Skills", id: "skills",
         },
         {
-            link: "Project",
+            link: "Project", id: "project",
         },
         {
-            link: "Contact Me",
+            link: "Contact Me", id: "contactme",
         },
     ]
 
@@ -30,9 +30,15 @@ const Navbar = () => {
             document.body.style.overflow = "auto";
         }
         return () => {
-            document.body.style.overflow = "auto"; // Reset on unmount
+            document.body.style.overflow = "auto";
         };
     }, [isOpen]);
+    const handleScroll = (id: any) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <nav className='sticky top-0 z-50 w-full h-full bg-white md:bg-white/20 md:backdrop-blur-[30px]'>
             <div className='flex justify-between flex-row p-5 items-center'>
@@ -43,7 +49,7 @@ const Navbar = () => {
                     {
                         navLinks.map((item, index) => (
                             <div key={index}>
-                                <span className='cursor-pointer'>{item.link}</span>
+                                <span className='cursor-pointer' onClick={() => handleScroll(item.id)}>{item.link}</span>
                             </div>
                         ))
                     }
