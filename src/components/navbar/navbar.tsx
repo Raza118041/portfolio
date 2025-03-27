@@ -1,12 +1,10 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button"
 import Link from 'next/link'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
@@ -24,11 +22,22 @@ const Navbar = () => {
             link: "Contact Me",
         },
     ]
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "auto"; // Reset on unmount
+        };
+    }, [isOpen]);
     return (
-        <nav className='sticky top-0 z-50 w-full h-full bg-white/20 shadow-sm backdrop-blur-[18px]'>
+        <nav className='sticky top-0 z-50 w-full h-full bg-white md:bg-white/20 md:backdrop-blur-[30px]'>
             <div className='flex justify-between flex-row p-5 items-center'>
                 <div>
-                    <span className='font-bold text-lg md:text-xl'>Ali Raza</span>
+                    <span className={`font-bold text-lg md:text-xl`}>Ali Raza</span>
                 </div>
                 <div className='md:flex flex-row gap-5 hidden'>
                     {
@@ -73,7 +82,7 @@ const Navbar = () => {
                                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                                 />
                             </svg>
-                        ) }
+                        )}
                     </button>
 
 

@@ -1,18 +1,34 @@
 import React from 'react'
+import Logo from "@/assets/securehops.svg"
+import Image from 'next/image'
+import Fiverr from "@/assets/fiverr.svg"
 
 const Experience = () => {
     const ExperienceArray = [
         {
-            logo: "logo",
+            logo: Logo,
             title: "Frontend Developer",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum et iure voluptas voluptate atque enim asperiores deserunt unde. Quas neque at suscipit, alias architecto saepe cumque explicabo vel culpa! Officiis saepe molestias soluta veritatis odit eligendi consectetur facere reprehenderit nihil libero aliquam pariatur ipsam ipsa voluptatibus, commodi perferendis quis vero placeat at non voluptatum aliquid nisi voluptatem! Ex, provident voluptatum ad repellendus atque quia fugiat delectus error quasi pariatur perspiciatis iste minima cumque optio. Aperiam et, tempore consequuntur assumenda a quae. Tempore obcaecati asperiores inventore possimus eum dolorem consequuntur magni quo, pariatur quidem molestiae sed eligendi voluptatem perferendis nostrum nihil.",
-            workingDate: "Jan 2023 - Jan 2025"
+            description: `I'm a Frontend Developer with 2 years of experience at Securehops, specializing in ReactJS, Next.js, and Tailwind CSS.
+                          I have expertise in Material UI, Bootstrap, ShadCN, HTML, and CSS, creating modern and responsive web applications.
+                          My focus is on developing intuitive, user- friendly interfaces with a strong emphasis on UI / UX design principles.
+                          I ensure cross - browser compatibility, pixel - perfect designs, and smooth user interactions.
+                          With a keen eye for performance optimization, I build scalable and maintainable front - end architectures.
+                          I have experience working with component - based design systems and reusable UI libraries.
+                          Passionate about writing clean, efficient, and well - documented code to enhance maintainability.
+                          I stay updated with the latest front - end trends and best practices to improve development workflows.
+                          My goal is to deliver high - quality, accessible, and interactive web experiences for users.
+                          I'm always eager to learn, adapt, and collaborate in a dynamic development environment.`,
+            workingDate: "Jan 2023 - Jan 2025",
+            width: 150,
+            height: 150
         },
         {
-            logo: "logo",
+            logo: Fiverr,
             title: "Fiverr",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum et iure voluptas voluptate atque enim asperiores deserunt unde. Quas neque at suscipit, alias architecto saepe cumque explicabo vel culpa! Officiis saepe molestias soluta veritatis odit eligendi consectetur facere reprehenderit nihil libero aliquam pariatur ipsam ipsa voluptatibus, commodi perferendis quis vero placeat at non voluptatum aliquid nisi voluptatem! Ex, provident voluptatum ad repellendus atque quia fugiat delectus error quasi pariatur perspiciatis iste minima cumque optio. Aperiam et, tempore consequuntur assumenda a quae. Tempore obcaecati asperiores inventore possimus eum dolorem consequuntur magni quo, pariatur quidem molestiae sed eligendi voluptatem perferendis nostrum nihil.",
-            workingDate: "Jan 2025 - Present"
+            description: "I'm a Full Stack Developer on Fiverr, specializing in ReactJS, Next.js, Node.js, Express.js, and MongoDB. I design and develop scalable web applications with modern UI/UX, ensuring high performance and seamless user experiences. With expertise in both frontend and backend, I build dynamic, responsive, and secure applications. I am committed to delivering clean, maintainable code and optimizing workflows for efficient development. My goal is to create high-quality digital solutions tailored to client needs.",
+            workingDate: "Jan 2025 - Present",
+            width: 40,
+            height: 40
         },
     ]
     return (
@@ -25,18 +41,18 @@ const Experience = () => {
                 <div className='px-6 flex gap-7 flex-col'>
                     {
                         ExperienceArray.map((item, index) => (
-                            <div key={index} className='border rounded-xl flex flex-col p-5'>
-                                <div className='flex justify-between items-center'>
-                                    <div className='flex flex-row gap-5 py-3'>
-                                        <span className='text-white'>{item.logo}</span>
-                                        <span className='text-white'>{item.title}</span>
+                            <div key={index} className='border rounded-xl flex flex-col p-5 hover:bg-white/20 hover:border-white/15 hover:border-none'>
+                                <div className='flex justify-between md:items-center gap-3'>
+                                    <div className='flex flex-col md:flex-row gap-5 py-3 items-center'>
+                                        <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
+                                        <span className='text-white text-xl font-semibold'>{item.title}</span>
                                     </div>
                                     <div>
-                                        <span className='text-white'>{item.workingDate}</span>
+                                        <span className='text-[#D4D4D8]'>{item.workingDate}</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <span className='text-white/60'>{item.description}</span>
+                                    <span className='text-[#D4D4D8]'>{item.description}</span>
                                 </div>
                             </div>
                         ))
