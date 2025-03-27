@@ -67,7 +67,7 @@ const SkillView = () => {
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 py-10 px-6'>
                 {
                     skillsArray.map((item, index) => (
-                        <div className='border-2 border-black flex cursor-pointer hover:bg-black hover:text-white justify-center flex-col items-center py-8 md:py-12 gap-5' key={index}>
+                        <div className='border md:border-2 border-black flex cursor-pointer hover:bg-black hover:text-white justify-center flex-col items-center py-8 md:py-12 gap-5' key={index}>
                             <span className='text-4xl md:text-7xl'>{item.icon}</span>
                             <span className='text-lg md:text-xl'>{item.name}</span>
                         </div>
