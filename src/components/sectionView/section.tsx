@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
+import fahad from "@/assets/Images/fahad.png"
 
 const Section = () => {
     const linksICons = [
@@ -23,7 +24,7 @@ const Section = () => {
                     <span className='font-bold'>Frontend</span> <span>Developer</span><br />
                     <span>Based In Pakistan</span>
                 </div>
-                <span className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum et iure voluptas voluptate atque enim asperiores deserunt unde. Quas neque at suscipit, alias architecto saepe cumque explicabo vel culpa! Officiis saepe molestias soluta veritatis odit eligendi consectetur facere reprehenderit nihil libero aliquam pariatur ipsam ipsa voluptatibus, commodi perferendis quis vero placeat at non voluptatum aliquid nisi voluptatem! Ex, provident voluptatum ad repellendus atque quia fugiat delectus error quasi pariatur perspiciatis iste minima cumque optio. Aperiam et, tempore consequuntur assumenda a quae. Tempore obcaecati asperiores inventore possimus eum dolorem consequuntur magni quo, pariatur quidem molestiae sed eligendi voluptatem perferendis nostrum nihil.</span>
+                <span className=''>Ali Raza is a passionate Frontend Developer with expertise in ReactJS, Next.js, and JavaScript. He specializes in building responsive, high-performance, and user-friendly web applications. With a strong understanding of Redux, Tailwind CSS, and modern UI/UX principles, he ensures seamless user experiences. Ali is proficient in handling API integrations, state management, and optimizing web performance. He is always eager to learn new technologies and improve his skills to develop scalable and efficient web solutions.</span>
                 <div className='flex flex-row gap-5 py-4'>
                     {
                         linksICons.map((item, index) => (
@@ -36,7 +37,7 @@ const Section = () => {
             </div>
             {/* Right Side  */}
             <div className='lg:absolute right-0'>
-                <Image src={Me} alt={"image"} />
+                <Image src={fahad} alt={"image"} className='grayscale' />
             </div>
         </div>
     )

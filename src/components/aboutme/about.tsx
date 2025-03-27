@@ -1,12 +1,13 @@
 import React from 'react'
 import Men from "@/assets/men.svg"
 import Image from 'next/image'
+import fahad from "@/assets/Images/fahad.png"
 
 const AboutMe = () => {
     return (
         <div className='w-full flex flex-col justify-center md:items-center md:flex-row gap-7 md:gap-15 px-6'>
             <div className=''>
-                <Image src={Men} alt={"image"} width={500} height={500} />
+                <Image src={fahad} alt={"image"} width={500} height={500} className='grayscale border-2 border-gray-200 rounded-2xl' />
             </div>
             <div className='md:w-1/2 w-full'>
                 <span className='text-lg md:text-2xl'>About</span>&nbsp;<span className='font-bold text-lg md:text-2xl'>Me</span>
