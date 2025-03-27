@@ -25,8 +25,8 @@ const Navbar = () => {
         },
     ]
     return (
-        <nav>
-            <div className='flex justify-between flex-row p-6 items-center'>
+        <nav className='sticky top-0 z-50 w-full h-full bg-white/20 shadow-sm backdrop-blur-[18px]'>
+            <div className='flex justify-between flex-row p-5 items-center'>
                 <div>
                     <span className='font-bold text-lg md:text-xl'>Ali Raza</span>
                 </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
 
                 </div>
             </div>
-            <div className={`md:hidden fixed top-0 z-50 w-full h-full bg-white/20 shadow-sm backdrop-blur-[12px] transform ${isOpen ? "translate-y-0" : "-translate-y-full"} transition-transform duration-500 ease-in-out`}>
+            <div className={`md:hidden fixed top-0 z-50 w-full h-full bg-white/20 shadow-sm backdrop-blur-[18px] transform ${isOpen ? "translate-y-0" : "-translate-y-full"} transition-transform duration-500 ease-in-out`}>
                 <button className='absolute right-5 top-5' onClick={handleClick}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
