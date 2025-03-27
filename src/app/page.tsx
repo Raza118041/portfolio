@@ -3,6 +3,7 @@ import Section from '@/components/sectionView/section'
 import SkillView from '@/components/skillsView/skills'
 import Experience from '@/components/experience/experience'
 import About from '@/components/aboutme/about'
+import Project from '@/components/projects/projects'
 
 const Page = () => {
   return (
@@ -10,8 +11,11 @@ const Page = () => {
       <Section />
       <SkillView />
       <Experience />
-      <div className='py-10'>
+      <div className='py-20'>
         <About />
+      </div>
+      <div className='pb-10'>
+        <Project />
       </div>
     </div>
   )

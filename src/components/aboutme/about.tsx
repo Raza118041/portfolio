@@ -17,8 +17,8 @@ const AboutMe = () => {
                 </p>
                 <p className='mt-4 font-bold '>Skills & Expertise:</p>
                 <span className='font-bold'>Frontend:</span>&nbsp;<span className='text-[#71717A]'>ReactJS, Next.js, Tailwind CSS</span><br />
-                <span className='font-bold'>Backend:</span>&nbsp;<span className='text-[#71717A]'> Node.js, Express.js, MongoDB</span><br />
-                <span className='font-bold'>State Management:</span>&nbsp;<span className='text-[#71717A]'> Redux Toolkit, Zustand</span>
+                <span className='font-bold'>Backend:</span>&nbsp;<span className='text-[#71717A]'>Node.js, Express.js, MongoDB</span><br />
+                <span className='font-bold'>State Management:</span>&nbsp;<span className='text-[#71717A]'>Redux Toolkit, Zustand</span>
                 <p className='text-[#71717A]'>API Development & Integration</p>
                 <p className='text-[#71717A]'>Mobile Responsiveness & Performance Optimization</p>
                 <p className='mt-4 text-[#71717A]'>I'm always eager to learn and work on challenging projects. Let’s connect and build something amazing!

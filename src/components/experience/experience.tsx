@@ -33,30 +33,29 @@ const Experience = () => {
     ]
     return (
         <>
-            <div className='bg-black pt-10 pb-20'>
-                <div className='flex  justify-center pb-10'>
-                    <span className='text-white text-center text-xl md:text-4xl'>My</span>&nbsp;&nbsp;&nbsp; <span className='font-bold text-white text-xl md:text-4xl '>Experience</span>
-                </div>
-
-                <div className='px-6 flex gap-7 flex-col'>
-                    {
-                        ExperienceArray.map((item, index) => (
-                            <div key={index} className='border rounded-xl flex flex-col p-5 hover:bg-white/20 hover:border-white/15 hover:border-none'>
-                                <div className='flex justify-between md:items-center gap-3'>
-                                    <div className='flex flex-col md:flex-row gap-3 md:gap-5 pt-[0.5] pb-3 md:py-3 md:items-center'>
-                                        <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
-                                        <span className='text-white text-xl font-semibold'>{item.title}</span>
+            <div className='bg-black py-16 px-6'>
+                <div className='flex flex-col gap-10'>
+                    <div className='flex  justify-center'>
+                        <span className='text-white text-xl md:text-4xl'>My</span>&nbsp;&nbsp;&nbsp; <span className='font-bold text-white text-xl md:text-4xl '>Experience</span>
+                    </div>
+                        {
+                            ExperienceArray.map((item, index) => (
+                                <div key={index} className='border rounded-xl flex flex-col p-5 hover:bg-white/20 hover:border-white/15 hover:border-none'>
+                                    <div className='flex justify-between md:items-center gap-3'>
+                                        <div className='flex flex-col md:flex-row gap-3 md:gap-5 pt-[0.5] pb-3 md:py-3 md:items-center'>
+                                            <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
+                                            <span className='text-white text-xl font-semibold'>{item.title}</span>
+                                        </div>
+                                        <div>
+                                            <span className='text-[#D4D4D8]'>{item.employmentPeriod}</span>
+                                        </div>
                                     </div>
                                     <div>
-                                        <span className='text-[#D4D4D8]'>{item.employmentPeriod}</span>
+                                        <span className='text-[#D4D4D8]'>{item.description}</span>
                                     </div>
                                 </div>
-                                <div>
-                                    <span className='text-[#D4D4D8]'>{item.description}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
+                            ))
+                        }
                 </div>
             </div>
 
