@@ -32,7 +32,7 @@ const Email = () => {
     });
 
 
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: z.infer<typeof formSchema>) => {
         console.log("Form Submitted:", data);
     };
 
@@ -112,7 +112,7 @@ const Email = () => {
                 </div>
             </Form>
             <div >
-                <span className="font-extrabold text-3xl">Let's talk for </span><br />
+                <span className="font-extrabold text-3xl">{"Let's talk for "}</span><br />
                 <span className="font-extrabold text-3xl">Something special</span><br />
                 <span className="pt-4 flex">{"Have a project in mind? Let’s discuss how we can bring it to life together"}</span>
                 {/* </div> */}
