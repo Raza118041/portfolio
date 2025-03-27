@@ -4,6 +4,7 @@ import SkillView from '@/components/skillsView/skills'
 import Experience from '@/components/experience/experience'
 import About from '@/components/aboutme/about'
 import Project from '@/components/projects/projects'
+import MyTestimonial from '@/components/testimonial/testimonial'
 
 const Page = () => {
   return (
@@ -16,6 +17,9 @@ const Page = () => {
       </div>
       <div className='pb-10'>
         <Project />
+      </div>
+      <div className='pb-10'>
+        <MyTestimonial />
       </div>
     </div>
   )

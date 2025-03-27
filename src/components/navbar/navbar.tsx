@@ -50,7 +50,7 @@ const Navbar = () => {
                 </div>
                 <div className='md:flex hidden group text-white'>
                     <Link href={"/Resume.pdf"} download={"Ali_Raza_CV.pdf"}>
-                        <Button className='cursor-pointer bg-transparent hover:bg-transparent border solid border-black text-black'>
+                        <Button className='cursor-pointer bg-transparent hover:bg-transparent border solid border-black/80 text-black'>
                             Resume
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

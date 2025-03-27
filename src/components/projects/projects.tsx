@@ -55,7 +55,7 @@ const Project = () => {
                                 <Image src={item.image} alt={"image"} width={200} height={200} className='h-auto border border-white/20 w-full object-contain rounded-xl' />
                             </div>
                             <div className='flex flex-col items-start gap-1 w-full md:w-1/2'>
-                                <p className='text-white'>{item.projectNumber}</p>
+                                <p className='text-white font-bold text-xl'>{item.projectNumber}</p>
                                 <p className='text-white'>{item.projectTitle}</p>
                                 <Link href={item.href}>
                                     <Image src={item.navigateImage} alt='image' width={15} height={15} className='cursor-pointer' />
