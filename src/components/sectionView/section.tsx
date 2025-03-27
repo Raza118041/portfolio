@@ -19,7 +19,7 @@ const Section = () => {
             {/* Left Side  */}
             <div className='md:w-1/2 space-y-5'>
                 <div className='text-2xl md:text-5xl md:leading-20 leading-12'>
-                    <span className=''>Hello I'm</span> <span className='font-bold'>Ali Raza</span><br />
+                    <span className=''>Hello I&apos;m</span> <span className='font-bold'>Ali Raza</span><br />
                     <span className='font-bold'>Frontend</span> <span>Developer</span><br />
                     <span>Based In Pakistan</span>
                 </div>

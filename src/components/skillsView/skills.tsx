@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import { FaHtml5 } from "react-icons/fa";
 import { DiCss3 } from "react-icons/di";
