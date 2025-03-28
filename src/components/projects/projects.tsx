@@ -48,7 +48,7 @@ const Project = () => {
             projectTitle: "ShopNGrab",
             projectDescription: "ShopnGrab is an eCommerce platform offering a wide range of products, including computer accessories, kids' products, and electronics. Built using Next.js, Node.js, Express.js, and MongoDB, it provides a seamless shopping experience with a fast and secure backend. The platform ensures smooth navigation, efficient product management, and a user-friendly interface. With optimized performance and scalability, ShopnGrab delivers a modern online shopping solution.",
             navigateImage: NavigateImage,
-            href: "https://tokenty.vercel.app/"
+            href: "https://shop-n-grab-pi.vercel.app/"
         },
     ]
     return (
