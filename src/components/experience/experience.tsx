@@ -39,7 +39,7 @@ const Experience = () => {
             <div className='bg-black py-5 md:py-10 px-6'>
                 <div className='flex flex-col gap-10'>
                     <div className='flex  justify-center'>
-                        <span className='text-white text-xl md:text-4xl'>My</span>&nbsp;&nbsp;&nbsp; <span className='font-bold text-white text-xl md:text-4xl '>Experience</span>
+                        <span className='text-white text-xl md:text-4xl'>My</span>&nbsp;<span className='font-bold text-white text-xl md:text-4xl '>Experience</span>
                     </div>
                     {
                         ExperienceArray.map((item, index) => (

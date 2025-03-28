@@ -38,6 +38,7 @@ const Navbar = () => {
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
         }
+        setIsOpen(false)
     };
     return (
         <nav className='sticky top-0 z-50 w-full h-full bg-white md:bg-white/20 md:backdrop-blur-[30px]'>
@@ -115,7 +116,7 @@ const Navbar = () => {
                     {
                         navLinks.map((item, index) => (
                             <div key={index}>
-                                <span className='cursor-pointer'>{item.link}</span>
+                                <span className='cursor-pointer' onClick={() => handleScroll(item.id)}>{item.link}</span>
                             </div>
                         ))
                     }
