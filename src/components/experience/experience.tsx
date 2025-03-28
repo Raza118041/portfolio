@@ -47,16 +47,16 @@ const Experience = () => {
                                 <div className='flex justify-between md:items-center gap-3'>
                                     <div className='flex flex-col md:flex-row gap-3 md:gap-5 pt-[0.5] pb-3 md:py-3 md:items-center'>
                                         <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
-                                        <span className='text-white text-xl font-semibold'>{item.title}</span>
+                                        <span className='text-white text-xl font-semibold cursor-default'>{item.title}</span>
                                     </div>
                                     <div>
-                                        <span className='text-[#D4D4D8]'>{item.employmentPeriod}</span>
+                                        <span className='text-[#D4D4D8] cursor-default'>{item.employmentPeriod}</span>
                                     </div>
                                 </div>
                                 <div>
-                                    <span className='text-[#D4D4D8]' >{showLess ? `${item.description.substring(0, 200)}...` : item.description}</span>
+                                    <span className='text-[#D4D4D8] cursor-default' >{showLess ? `${item.description.substring(0, 200)}...` : item.description}</span>
                                     <button
-                                        className='text-blue-400 ml-2'
+                                        className='text-blue-400 ml-2 cursor-pointer'
                                         onClick={() => setShowLess(!showLess)}
                                     >
                                         {showLess ? "read more" : "show less"}
