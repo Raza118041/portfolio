@@ -1,9 +1,11 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Logo from "@/assets/securehops.svg"
 import Image from 'next/image'
 import Fiverr from "@/assets/fiverr.svg"
 
 const Experience = () => {
+    const [showLess, setShowLess] = React.useState(true)
     const ExperienceArray = [
         {
             logo: Logo,
@@ -31,31 +33,38 @@ const Experience = () => {
             height: 40
         },
     ]
+
     return (
         <>
-            <div className='bg-black py-16 px-6'>
+            <div className='bg-black py-5 md:py-10 px-6'>
                 <div className='flex flex-col gap-10'>
                     <div className='flex  justify-center'>
                         <span className='text-white text-xl md:text-4xl'>My</span>&nbsp;&nbsp;&nbsp; <span className='font-bold text-white text-xl md:text-4xl '>Experience</span>
                     </div>
-                        {
-                            ExperienceArray.map((item, index) => (
-                                <div key={index} className='border rounded-xl flex flex-col p-5 hover:bg-white/20 hover:border-white/15 hover:border-none'>
-                                    <div className='flex justify-between md:items-center gap-3'>
-                                        <div className='flex flex-col md:flex-row gap-3 md:gap-5 pt-[0.5] pb-3 md:py-3 md:items-center'>
-                                            <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
-                                            <span className='text-white text-xl font-semibold'>{item.title}</span>
-                                        </div>
-                                        <div>
-                                            <span className='text-[#D4D4D8]'>{item.employmentPeriod}</span>
-                                        </div>
+                    {
+                        ExperienceArray.map((item, index) => (
+                            <div key={index} className='border rounded-xl flex flex-col p-5 hover:bg-white/20 hover:border-white/15 hover:border-none'>
+                                <div className='flex justify-between md:items-center gap-3'>
+                                    <div className='flex flex-col md:flex-row gap-3 md:gap-5 pt-[0.5] pb-3 md:py-3 md:items-center'>
+                                        <Image src={item.logo} alt={'logo/Image'} width={item.width} height={item.height} className='fill-white' />
+                                        <span className='text-white text-xl font-semibold'>{item.title}</span>
                                     </div>
                                     <div>
-                                        <span className='text-[#D4D4D8]'>{item.description}</span>
+                                        <span className='text-[#D4D4D8]'>{item.employmentPeriod}</span>
                                     </div>
                                 </div>
-                            ))
-                        }
+                                <div>
+                                    <span className='text-[#D4D4D8]' >{showLess ? `${item.description.substring(0, 200)}...` : item.description}</span>
+                                    <button
+                                        className='text-blue-400 ml-2'
+                                        onClick={() => setShowLess(!showLess)}
+                                    >
+                                        {showLess ? "read more" : "show less"}
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
 

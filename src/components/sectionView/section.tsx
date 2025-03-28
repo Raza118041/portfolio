@@ -15,7 +15,7 @@ const Section = () => {
         },
     ]
     return (
-        <div className='px-6 py-10 flex flex-col-reverse md:flex-row items-center relative'>
+        <div className='px-6 py-5 md:py-10 flex flex-col-reverse md:flex-row items-center relative'>
             {/* Left Side  */}
             <div className='md:w-1/2 space-y-5'>
                 <div className='text-2xl md:text-5xl md:leading-20 leading-12'>

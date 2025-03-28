@@ -10,6 +10,10 @@ import { SiShadcnui } from "react-icons/si";
 import { FaBootstrap } from "react-icons/fa";
 import { FaTrello } from "react-icons/fa";
 import { FaJira } from "react-icons/fa";
+import { DiMongodb } from "react-icons/di";
+import { FaNode } from "react-icons/fa6";
+import { SiExpress } from "react-icons/si";
+
 
 const SkillView = () => {
     const skillsArray = [
@@ -30,8 +34,20 @@ const SkillView = () => {
             name: "NextJS",
         },
         {
+            icon: <FaNode />,
+            name: "NodeJS",
+        },
+        {
+            icon: <SiExpress />,
+            name: "ExpressJS",
+        },
+        {
             icon: <IoLogoJavascript />,
             name: "JavaScript",
+        },
+        {
+            icon: <DiMongodb />,
+            name: "MongoDB",
         },
         {
             icon: <RiTailwindCssFill />,
@@ -52,15 +68,11 @@ const SkillView = () => {
         {
             icon: <FaTrello />,
             name: "Trello",
-        },
-        {
-            icon: <FaJira />,
-            name: "Jira",
-        },
+        }
     ]
     return (
         <>
-            <div className='flex justify-center md:mt-10'>
+            <div className='flex justify-center'>
                 <span className='text-xl md:text-4xl'>My&nbsp;</span><span className='font-bold text-xl md:text-4xl'>Skills</span>
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 py-10 px-6'>

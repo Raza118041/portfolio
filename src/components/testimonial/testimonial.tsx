@@ -47,7 +47,7 @@ const MyTestimonial = () => {
             <div className='flex justify-center'>
                 <span className='text-xl md:text-4xl'>My</span>&nbsp;<span className='font-bold text-xl md:text-4xl'>Testimonial</span>
             </div>
-            <div className='py-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10'>
+            <div className='py-5 md:py-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10'>
                 {
                     cards.map((item, index) => (
                         <div className='flex justify-center mx-4' key={index}>

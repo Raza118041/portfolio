@@ -50,7 +50,7 @@ const Email = () => {
                 toast.error(result.message || "Something went wrong. Please try again later.")
             }
 
-        } catch (error) {
+        } catch {
             toast.error("Something went wrong. Please try again later.")
         } finally {
             setLoader(false)

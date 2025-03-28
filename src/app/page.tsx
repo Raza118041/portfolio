@@ -15,7 +15,7 @@ const Page = () => {
         <SkillView />
       </div>
       <Experience />
-      <div className='py-20' id='about'>
+      <div className='py-5 md:py-10' id='about'>
         <About />
       </div>
       <div className='pb-10' id='project'>

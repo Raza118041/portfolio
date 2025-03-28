@@ -43,7 +43,7 @@ const Project = () => {
         },
     ]
     return (
-        <div className='bg-black w-full py-16 px-6 text-center'>
+        <div className='bg-black w-full py-5 md:py-10 px-6 text-center'>
             <div className='flex gap-10 flex-col'>
                 <div>
                     <span className='text-white text-xl md:text-4xl'>My</span>&nbsp;<span className='font-bold text-white text-xl md:text-4xl'>Projects</span>
