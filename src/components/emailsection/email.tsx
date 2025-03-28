@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea"
@@ -16,6 +16,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { toast } from "sonner"
 
 
 const formSchema = z.object({
@@ -26,14 +27,34 @@ const formSchema = z.object({
 });
 
 const Email = () => {
+    const [loader, setLoader] = useState(false)
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: { username: "", email: "", website: "", message: "" },
     });
 
 
-    const onSubmit = (data: z.infer<typeof formSchema>) => {
-        console.log("Form Submitted:", data);
+    const onSubmit = async (data: z.infer<typeof formSchema>) => {
+        setLoader(true)
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (result.message) {
+                toast.success("Message sent! We'll review your inquiry and get in touch soon.")
+                form.reset()
+            } else {
+                toast.error(result.message || "Something went wrong. Please try again later.")
+            }
+
+        } catch (error) {
+            toast.error("Something went wrong. Please try again later.")
+        } finally {
+            setLoader(false)
+        }
     };
 
     const linksICons = [
@@ -98,7 +119,13 @@ const Email = () => {
                         )}
                     />
                     <div className='flex flex-row gap-5 py-4 items-center'>
-                        <Button type="submit" className="py-6 px-10">Get In Touch</Button>
+                        <Button
+                            type="submit"
+                            className="py-6 px-10 cursor-pointer"
+                            disabled={loader}
+                        >
+                            {loader ? "Submitting..." : "Get In Touch"}
+                        </Button>
                         {
                             linksICons.map((item, index) => (
                                 <div key={index} className='p-2 rounded-xl border-2 border-black hover:bg-black hover:text-white'>

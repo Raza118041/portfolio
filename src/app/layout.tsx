@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import { Sora } from "next/font/google";
+import { Toaster } from "sonner";
 
 
 
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body
         className={sora.className}
       >
+        <Toaster position="bottom-right" richColors />
         <Navbar />
         {children}
       </body>
