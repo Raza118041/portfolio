@@ -9,7 +9,6 @@ import { GiMaterialsScience } from "react-icons/gi";
 import { SiShadcnui } from "react-icons/si";
 import { FaBootstrap } from "react-icons/fa";
 import { FaTrello } from "react-icons/fa";
-import { FaJira } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { FaNode } from "react-icons/fa6";
 import { SiExpress } from "react-icons/si";
