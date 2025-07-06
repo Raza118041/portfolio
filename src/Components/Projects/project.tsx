@@ -31,7 +31,8 @@ const Project = () => {
     ]
     return (
         <div className="mx-auto max-w-7xl px-5 py-16" id="projects">
-            <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+            <h2 className="text-4xl font-bold text-center mb-3">Projects</h2>
+            <p className='text-center mb-12'>Technologies I’ve been working with recently</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
                     <Card key={index} className="rounded-2xl shadow-md hover:shadow-lg transition duration-300 gap-1">
