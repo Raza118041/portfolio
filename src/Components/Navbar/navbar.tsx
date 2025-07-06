@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <div className='flex justify-between p-7 flex-row items-center'>
             <div>
-                <span>Ali Raza</span>
+                <span className='font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500'>Ali Raza</span>
             </div>
             <div className='flex flex-row gap-6'>
                 {
@@ -36,8 +36,8 @@ const Navbar = () => {
                     const Icon = link.icon
                     return (
                         <div key={index} >
-                            <Link href={link.path}>
-                                <Icon size={24}></Icon>
+                            <Link href={link.path} target='_blank'>
+                                <Icon size={26}></Icon>
                             </Link>
                         </div>
                     )
