@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { z } from 'zod';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 
