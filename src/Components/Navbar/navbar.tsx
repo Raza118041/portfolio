@@ -6,9 +6,9 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
     const navLinks = [
-        { name: 'Home', path: '#' },
+        { name: 'Home', path: '/#home' },
         { name: 'About', path: '#' },
-        { name: 'Tech Stack', path: '#' },
+        { name: 'Tech Stack', path: '#techstack' },
         { name: 'Projects', path: '#' },
         { name: 'Contact', path: '#' },
 
