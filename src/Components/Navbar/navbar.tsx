@@ -5,9 +5,10 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
+
     const navLinks = [
         { name: 'Home', path: '/#home' },
-        { name: 'About', path: '#' },
+        { name: 'About', path: "/404Page" },
         { name: 'Tech Stack', path: '#techstack' },
         { name: 'Projects', path: '#projects' },
         { name: 'Contact', path: '#contact' },
