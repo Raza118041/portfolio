@@ -10,7 +10,7 @@ const Navbar = () => {
         { name: 'About', path: '#' },
         { name: 'Tech Stack', path: '#techstack' },
         { name: 'Projects', path: '#projects' },
-        { name: 'Contact', path: '#' },
+        { name: 'Contact', path: '#contact' },
 
     ]
     const socialLinks = [
