@@ -1,18 +1,18 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 import { z } from 'zod';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 
-const formSchema = z.object({
-  firstName: z.string().min(1, 'First name is required'),
-  lastName: z.string().min(1, 'Last name is required'),
-  email: z.string().email('Please enter a valid email address'),
-  phoneNumber: z.string().regex(/^\+?\d{10,15}$/, 'Please enter a valid phone number'),
-  subject: z.string().min(1, 'Subject is required'),
-  message: z.string().min(10, 'Message must be at least 10 characters long'),
-});
+// const formSchema = z.object({
+//   firstName: z.string().min(1, 'First name is required'),
+//   lastName: z.string().min(1, 'Last name is required'),
+//   email: z.string().email('Please enter a valid email address'),
+//   phoneNumber: z.string().regex(/^\+?\d{10,15}$/, 'Please enter a valid phone number'),
+//   subject: z.string().min(1, 'Subject is required'),
+//   message: z.string().min(10, 'Message must be at least 10 characters long'),
+// });
 
 const Contact = () => {
 
