@@ -1,19 +1,77 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
+import z from 'zod';
 
 
-// const formSchema = z.object({
-//   firstName: z.string().min(1, 'First name is required'),
-//   lastName: z.string().min(1, 'Last name is required'),
-//   email: z.string().email('Please enter a valid email address'),
-//   phoneNumber: z.string().regex(/^\+?\d{10,15}$/, 'Please enter a valid phone number'),
-//   subject: z.string().min(1, 'Subject is required'),
-//   message: z.string().min(10, 'Message must be at least 10 characters long'),
-// });
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  subject: string;
+  message: string;
+}
+
+interface FormErrors {
+  firstName?: string[];
+  lastName?: string[];
+  email?: string[];
+  phoneNumber?: string[];
+  subject?: string[];
+  message?: string[];
+}
+
+const formSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Please enter a valid email address'),
+  phoneNumber: z.string().regex(/^\+?\d{10,15}$/, 'Please enter a valid phone number'),
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(10, 'Message must be at least 10 characters long'),
+});
 
 const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    subject: '',
+    message: ''
+  })
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
+  }
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    try {
+      const validatedData = formSchema.parse(formData)
+      setErrors({});
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        subject: '',
+        message: ''
+      })
+
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors = error.flatten().fieldErrors;
+        setErrors(fieldErrors);
+      } else {
+        console.error('Unexpected error:', error);
+      }
+    }
+  }
 
   return (
     <div className="py-16 bg-gradient-to-b bg-blue-600 to-gray-800 text-white relative overflow-hidden" id='contact'>
@@ -56,61 +114,56 @@ const Contact = () => {
                 <input
                   type="text"
                   name="firstName"
-                  //   value={formData.firstName}
-                  //   value={"John"}
-                  //   onChange={handleInputChange}
+                  value={formData.firstName}
+                  onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="John"
                 />
-                {/* {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>} */}
+                {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Last Name</label>
                 <input
                   type="text"
                   name="lastName"
-                  //   value={formData.lastName}
-                  //   value={"Doe"}
-                  //   onChange={handleInputChange}
+                  value={formData.lastName}
+                  onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="Doe"
                 />
-                {/* {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>} */}
+                {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Email</label>
                 <input
                   type="email"
                   name="email"
-                  //   value={formData.email}
-                  //   value={"example@gmail.com"}
-                  //   onChange={handleInputChange}
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="example@email.com"
                 />
-                {/* {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>} */}
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Phone Number</label>
                 <input
                   type="text"
                   name="phoneNumber"
-                  //   value={formData.phoneNumber}
-                  //   value={"+92-301-1339381"}
-                  //   onChange={handleInputChange}
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="+1 012 3456 789"
                 />
-                {/* {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>} */}
+                {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
               </div>
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Select Subject?</label>
               <select
                 name="subject"
-                // value={formData.subject}
-                // value={"any thing"}
-                // onChange={handleInputChange}
+                value={formData.subject}
+                onChange={handleInputChange}
                 className="w-full p-2 border-b-2 cursor-pointer border-gray-300 focus:outline-none focus:border-black"
               >
                 <option value="General Inquiry">General Inquiry</option>
@@ -118,23 +171,22 @@ const Contact = () => {
                 <option value="Support">Support</option>
                 <option value="Feedback">Feedback</option>
               </select>
-              {/* {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>} */}
+              {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Message</label>
               <textarea
                 name="message"
-                // value={formData.message}
-                // value={"Write Message here"}
-                // onChange={handleInputChange}
+                value={formData.message}
+                onChange={handleInputChange}
                 className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                 // rows="3"
                 placeholder="Write your message..."
               />
-              {/* {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>} */}
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
             <button
-              //   onClick={handleSubmit}
+              onClick={handleSubmit}
               className="w-full py-3 cursor-pointer bg-black text-white font-semibold rounded-md hover:bg-gray-800 transition-colors"
             >
               Send Message
