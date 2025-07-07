@@ -16,7 +16,7 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitte
 const Contact = () => {
 
   return (
-    <div className="py-16 bg-gradient-to-b from-gray-900 to-gray-800 text-white relative overflow-hidden" id='contact'>
+    <div className="py-16 bg-gradient-to-b bg-blue-600 to-gray-800 text-white relative overflow-hidden" id='contact'>
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-[url('https://via.placeholder.com/1500x300')] bg-repeat-x bg-bottom opacity-20"></div>
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center">Contact Us</h2>

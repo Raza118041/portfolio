@@ -26,6 +26,7 @@ const Stack = () => {
     { name: 'Shadcn', icon: ShadCNIcon },
     { name: 'Google Analytics', icon: GoogleAnalytics },
     { name: 'GoogleAdSense', icon: GoogleAdSense },
+    { name: 'Sales Representative', icon: 'https://cdn-icons-png.flaticon.com/512/190/190411.png' },
   ];
 
   return (
