@@ -9,13 +9,13 @@ import {
     CardTitle,
 } from "@/Components/ui/card"
 import Image from 'next/image'
-import Femclinic from "../../../public/femclinic.png"
-import Rubngub from "../../../public/rubngub.png"
-import CodeSprint from "../../../public/codesprint.png"
-import Tokenty from "../../../public/tokenty.png"
-import ZeePowerSolution from "../../../public/zeepowersolution.png"
-import JobFinder from "../../../public/jobfinder.png"
-import ChatBot from "../../../public/chatbot.png"
+import Femclinic from "@/assets/Images/femclinic.png"
+import Rubngub from "@/assets/Images/rubngub.png"
+import CodeSprint from "@/assets/Images/codesprint.png"
+import Tokenty from "@/assets/Images/tokenty.png"
+import ZeePowerSolution from "@/assets/Images/zeepowersolution.png"
+import JobFinder from "@/assets/Images/jobfinder.png"
+import ChatBot from "@/assets/Images/chatbot.png"
 import Link from 'next/link'
 
 

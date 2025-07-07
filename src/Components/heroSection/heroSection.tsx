@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import heroImage from '../../../public/aliraza.webp'
+import heroImage from '@/assets/Images/aliraza.webp'
 
 const HeroSection = () => {
     return (
