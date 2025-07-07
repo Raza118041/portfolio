@@ -39,7 +39,7 @@ const ContactEmail = ({ firstName, lastName, email, phoneNumber, subject, messag
           </Text>
           <Hr style={{ margin: '20px 0' }} />
           <Text style={{ fontSize: '14px', color: '#666666' }}>
-            This email was sent from your website's contact form.
+            This email was sent from your website&apos;s contact form.
           </Text>
         </Container>
       </Body>

@@ -34,10 +34,10 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json({ error: error.flatten().fieldErrors }, { status: 400 });
-    }
+    return NextResponse.json({ error: error.flatten().fieldErrors }, { status: 400 });
+  }
     console.error(error);
     return NextResponse.json({ error: 'Server Error' }, { status: 500 });
   }

@@ -12,7 +12,7 @@ export default function About() {
                 <section className="text-center mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h1>
                     <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-                        Hi, I'm Ali Raza, a passionate Frontend Developer and Sales Representative with a knack for creating stunning websites and securing government contracts.
+                        Hi, I&apos;m Ali Raza, a passionate Frontend Developer and Sales Representative with a knack for creating stunning websites and securing government contracts.
                     </p>
                 </section>
                 <section className="mb-12">
@@ -38,7 +38,7 @@ export default function About() {
                             <h3 className="text-xl font-bold text-gray-800">Self-Employed Frontend Developer</h3>
                             <p className="text-gray-600 italic">Feb 2025 - Present</p>
                             <p className="text-gray-700 mt-2">
-                                Since February 2025, I’ve been working independently, taking on freelance projects to create stunning, SEO-optimized websites using Next.js, React, and Tailwind CSS, delivering pixel-perfect results for clients.
+                                Since February 2025, I&apos;ve been working independently, taking on freelance projects to create stunning, SEO-optimized websites using Next.js, React, and Tailwind CSS, delivering pixel-perfect results for clients.
                             </p>
                         </div>
                         <div className="bg-white p-6 rounded-lg shadow-md">
@@ -50,8 +50,8 @@ export default function About() {
                             <ul className="list-disc list-inside text-gray-700 mt-2">
                                 <li>Searching for new business opportunities and reviewing detailed requirements, including product names, quantities, units of measure (UOM), and product descriptions.</li>
                                 <li>Reaching out to potential suppliers via emails and professional communication channels, sharing complete product specifications, and requesting formal quotations.</li>
-                                <li>Reviewing supplier quotes and preparing them for submission on SAM.gov before the opportunity’s closing date to meet compliance standards.</li>
-                                <li>Contributing to the company’s sales goals by targeting government contracts and building relationships with reliable suppliers.</li>
+                                <li>Reviewing supplier quotes and preparing them for submission on SAM.gov before the opportunity&apos;s closing date to meet compliance standards.</li>
+                                <li>Contributing to the company&apos;s sales goals by targeting government contracts and building relationships with reliable suppliers.</li>
                             </ul>
                         </div>
                     </div>
@@ -71,9 +71,9 @@ export default function About() {
                     </div>
                 </section>
                 <section className="text-center">
-                    <h2 className="text-3xl font-semibold text-gray-800 mb-4">Let’s Work Together!</h2>
+                    <h2 className="text-3xl font-semibold text-gray-800 mb-4">Let&apos;s Work Together!</h2>
                     <p className="text-lg text-gray-600 mb-6">
-                        Whether you need a stunning website or assistance with federal procurement, I’m here to help. Check out my projects or reach out to discuss your next big idea!
+                        Whether you need a stunning website or assistance with federal procurement, I&apos;m here to help. Check out my projects or reach out to discuss your next big idea!
                     </p>
                     <Link href={'/#contact'}>
                         <button
