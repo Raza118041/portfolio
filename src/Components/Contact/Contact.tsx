@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import z from 'zod';
+import { toast } from "sonner";
 
 
 interface FormData {
@@ -49,20 +50,32 @@ const Contact = () => {
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       const validatedData = formSchema.parse(formData)
-      setErrors({});
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        subject: '',
-        message: ''
-      })
-
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(validatedData),
+      });
+      const result = await res.json();
+      if (res.ok) {
+        toast.success("We’ve received your message and will get back to you soon.");
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phoneNumber: '',
+          subject: '',
+          message: ''
+        })
+        setErrors({});
+      } else {
+        setErrors(result.error || {});
+      }
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
@@ -74,7 +87,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="py-16 bg-gradient-to-b bg-blue-600 to-gray-800 text-white relative overflow-hidden" id='contact'>
+    <div className="py-16 bg-gradient-to-b via-purple-700 to-gray-800 text-white relative overflow-hidden" id='contact'>
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-[url('https://via.placeholder.com/1500x300')] bg-repeat-x bg-bottom opacity-20"></div>
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center">Contact Us</h2>
@@ -114,98 +127,99 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 bg-white text-gray-800 p-6 rounded-lg shadow-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-sm font-medium mb-1">First Name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
+            <form onSubmit={handleSubmit} className=''>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
+                    placeholder="John"
+                  />
+                  {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Last Name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
+                    placeholder="Doe"
+                  />
+                  {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
+                    placeholder="example@email.com"
+                  />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Phone Number</label>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
+                    placeholder="+1 012 3456 789"
+                  />
+                  {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
+                </div>
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-1">Select Subject?</label>
+                <select
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border-b-2 cursor-pointer border-gray-300 focus:outline-none focus:border-black"
+                >
+                  <option value="" disabled>Select Subject</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Project Request">Project Request</option>
+                  <option value="Freelance Opportunity">Freelance Opportunity</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="Bug Report">Bug Report</option>
+                  <option value="Support">Support</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Other">Other</option>
+                </select>
+                {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-1">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
                   onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
-                  placeholder="John"
+                  // rows="3"
+                  placeholder="Write your message..."
                 />
-                {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Last Name</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
-                  placeholder="Doe"
-                />
-                {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
-                  placeholder="example@email.com"
-                />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Phone Number</label>
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
-                  placeholder="+1 012 3456 789"
-                />
-                {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Select Subject?</label>
-              <select
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className="w-full p-2 border-b-2 cursor-pointer border-gray-300 focus:outline-none focus:border-black"
+              <button
+                className="w-full py-3 cursor-pointer bg-black text-white font-semibold rounded-md hover:bg-gray-800 transition-colors"
               >
-                <option value="" disabled>Select Subject</option>
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="Project Request">Project Request</option>
-                <option value="Freelance Opportunity">Freelance Opportunity</option>
-                <option value="Collaboration">Collaboration</option>
-                <option value="Bug Report">Bug Report</option>
-                <option value="Support">Support</option>
-                <option value="Feedback">Feedback</option>
-                <option value="Other">Other</option>
-              </select>
-              {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium mb-1">Message</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
-                // rows="3"
-                placeholder="Write your message..."
-              />
-              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-            </div>
-            <button
-              onClick={handleSubmit}
-              className="w-full py-3 cursor-pointer bg-black text-white font-semibold rounded-md hover:bg-gray-800 transition-colors"
-            >
-              Send Message
-            </button>
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
