@@ -96,10 +96,16 @@ const Contact = () => {
                   aliraza118041@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-gray-300 -mt-7" />
+              <a
+                href="https://maps.app.goo.gl/PCKVrQobDa6VhPzL9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-white hover:text-blue-400 transition"
+              >
+                <FaMapMarkerAlt className="text-gray-300 mt-1" />
                 <span>Near Stadium Market, IPS No 2 Quarter No 10, Okara Cantt.</span>
-              </div>
+              </a>
+
             </div>
             <div className="flex gap-4 mt-6">
               <FaFacebookF className="text-gray-300 hover:text-blue-400 cursor-pointer transition-colors" />
@@ -166,10 +172,15 @@ const Contact = () => {
                 onChange={handleInputChange}
                 className="w-full p-2 border-b-2 cursor-pointer border-gray-300 focus:outline-none focus:border-black"
               >
+                <option value="" disabled>Select Subject</option>
                 <option value="General Inquiry">General Inquiry</option>
                 <option value="Project Request">Project Request</option>
+                <option value="Freelance Opportunity">Freelance Opportunity</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Bug Report">Bug Report</option>
                 <option value="Support">Support</option>
                 <option value="Feedback">Feedback</option>
+                <option value="Other">Other</option>
               </select>
               {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
             </div>
