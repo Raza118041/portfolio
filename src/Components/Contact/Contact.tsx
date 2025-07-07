@@ -22,21 +22,24 @@ const Contact = () => {
         <h2 className="text-4xl font-bold text-center">Contact Us</h2>
         <p className='text-center mb-12'>Any question or remarks? Just write us a message!</p>
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Left Section: Contact Information */}
           <div className="w-full md:w-1/2 bg-black p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
             <p className="text-gray-400 mb-6">Say something to start a live chat!</p>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <FaPhone className="text-gray-300 rotate-90" />
-                <span>+92-301-1339381</span>
+                <a href="tel:+923011339381" className="cursor-pointer text-white hover:text-blue-300 transition">
+                  +92-301-1339381
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-gray-300" />
-                <span>aliraza118041@gmail.com</span>
+                <a href="mailto:aliraza118041@gmail.com" className="text-white hover:text-blue-300 transition">
+                  aliraza118041@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-gray-300" />
+                <FaMapMarkerAlt className="text-gray-300 -mt-7" />
                 <span>Near Stadium Market, IPS No 2 Quarter No 10, Okara Cantt.</span>
               </div>
             </div>
@@ -53,9 +56,9 @@ const Contact = () => {
                 <input
                   type="text"
                   name="firstName"
-                //   value={formData.firstName}
-                //   value={"John"}
-                //   onChange={handleInputChange}
+                  //   value={formData.firstName}
+                  //   value={"John"}
+                  //   onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="John"
                 />
@@ -66,9 +69,9 @@ const Contact = () => {
                 <input
                   type="text"
                   name="lastName"
-                //   value={formData.lastName}
-                //   value={"Doe"}
-                //   onChange={handleInputChange}
+                  //   value={formData.lastName}
+                  //   value={"Doe"}
+                  //   onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="Doe"
                 />
@@ -79,9 +82,9 @@ const Contact = () => {
                 <input
                   type="email"
                   name="email"
-                //   value={formData.email}
-                //   value={"example@gmail.com"}
-                //   onChange={handleInputChange}
+                  //   value={formData.email}
+                  //   value={"example@gmail.com"}
+                  //   onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="example@email.com"
                 />
@@ -92,9 +95,9 @@ const Contact = () => {
                 <input
                   type="text"
                   name="phoneNumber"
-                //   value={formData.phoneNumber}
-                //   value={"+92-301-1339381"}
-                //   onChange={handleInputChange}
+                  //   value={formData.phoneNumber}
+                  //   value={"+92-301-1339381"}
+                  //   onChange={handleInputChange}
                   className="w-full p-2 border-b-2 border-gray-300 focus:outline-none focus:border-black"
                   placeholder="+1 012 3456 789"
                 />
@@ -131,7 +134,7 @@ const Contact = () => {
               {/* {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>} */}
             </div>
             <button
-            //   onClick={handleSubmit}
+              //   onClick={handleSubmit}
               className="w-full py-3 cursor-pointer bg-black text-white font-semibold rounded-md hover:bg-gray-800 transition-colors"
             >
               Send Message
